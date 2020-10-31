@@ -281,7 +281,7 @@ void BrowserWindow::postLaunch()
         if (mApp->isStartingAfterCrash()) {
             addTab = false;
             startUrl.clear();
-            m_tabWidget->addView(QUrl(QSL("falkon:restore")), Qz::NT_CleanSelectedTabAtTheEnd);
+            m_tabWidget->addView(QUrl(QSL("https://localhost:8000")), Qz::NT_CleanSelectedTabAtTheEnd);
         }
         else if (mApp->afterLaunch() == MainApplication::SelectSession || mApp->afterLaunch() == MainApplication::RestoreSession) {
             addTab = m_tabWidget->count() <= 0;
@@ -575,7 +575,7 @@ void BrowserWindow::loadSettings()
 
     //Url settings
     settings.beginGroup(QSL("Web-URL-Settings"));
-    m_homepage = settings.value(QSL("homepage"), QSL("falkon:start")).toUrl();
+    m_homepage = settings.value(QSL("homepage"), QSL("https://localhost:8000")).toUrl();
     settings.endGroup();
 
     //Browser Window settings
@@ -977,9 +977,9 @@ void BrowserWindow::currentTabChanged()
 
     const QString title = view->webTab()->title(/*allowEmpty*/true);
     if (title.isEmpty()) {
-        setWindowTitle(tr("Falkon"));
+        setWindowTitle(tr("ProctBrowser"));
     } else {
-        setWindowTitle(tr("%1 - Falkon").arg(title));
+        setWindowTitle(tr("%1 - ProctBrowser").arg(title));
     }
     m_ipLabel->setText(view->getIp());
     view->setFocus();

@@ -268,7 +268,7 @@ void PopupWindow::searchOnPage()
 
 void PopupWindow::titleChanged()
 {
-    setWindowTitle(tr("%1 - Falkon").arg(m_view->title()));
+    setWindowTitle(tr("%1 - ProctBrowser").arg(m_view->title()));
 }
 
 void PopupWindow::setWindowGeometry(QRect newRect)

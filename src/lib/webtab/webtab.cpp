@@ -621,7 +621,7 @@ void WebTab::titleWasChanged(const QString &title)
     }
 
     if (m_isCurrentTab) {
-        m_window->setWindowTitle(tr("%1 - Falkon").arg(title));
+        m_window->setWindowTitle(tr("%1 - ProctBrowser").arg(title));
     }
 
     m_tabBar->setTabText(tabIndex(), title);

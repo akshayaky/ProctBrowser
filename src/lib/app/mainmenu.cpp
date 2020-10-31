@@ -75,17 +75,17 @@ void MainMenu::initMenuBar(QMenuBar* menuBar) const
 
 void MainMenu::initSuperMenu(QMenu* superMenu) const
 {
-    superMenu->addAction(m_actions[QSL("File/NewTab")]);
-    superMenu->addAction(m_actions[QSL("File/NewWindow")]);
-    superMenu->addAction(m_actions[QSL("File/NewPrivateWindow")]);
+    // superMenu->addAction(m_actions[QSL("File/NewTab")]);
+    // superMenu->addAction(m_actions[QSL("File/NewWindow")]);
+    // superMenu->addAction(m_actions[QSL("File/NewPrivateWindow")]);
     superMenu->addAction(m_actions[QSL("File/OpenFile")]);
-    if (mApp->sessionManager()) {
-        superMenu->addSeparator();
-        QMenu* sessionsSubmenu = new QMenu(tr("Sessions"));
-        connect(sessionsSubmenu, SIGNAL(aboutToShow()), mApp->sessionManager(), SLOT(aboutToShowSessionsMenu()));
-        superMenu->addMenu(sessionsSubmenu);
-        superMenu->addAction(m_actions[QSL("File/SessionManager")]);
-    }
+    // if (mApp->sessionManager()) {
+    //     superMenu->addSeparator();
+    //     QMenu* sessionsSubmenu = new QMenu(tr("Sessions"));
+    //     connect(sessionsSubmenu, SIGNAL(aboutToShow()), mApp->sessionManager(), SLOT(aboutToShowSessionsMenu()));
+    //     superMenu->addMenu(sessionsSubmenu);
+    //     superMenu->addAction(m_actions[QSL("File/SessionManager")]);
+    // }
     superMenu->addSeparator();
     superMenu->addAction(m_actions[QSL("File/SendLink")]);
     superMenu->addAction(m_actions[QSL("File/Print")]);
@@ -485,24 +485,24 @@ void MainMenu::init()
     m_menuFile = new QMenu(tr("&File"));
     connect(m_menuFile, &QMenu::aboutToShow, this, &MainMenu::aboutToShowFileMenu);
 
-    ADD_ACTION("File/NewTab", m_menuFile, IconProvider::newTabIcon(), tr("New Tab"), SLOT(newTab()), "Ctrl+T");
-    ADD_ACTION("File/NewWindow", m_menuFile, IconProvider::newWindowIcon(), tr("&New Window"), SLOT(newWindow()), "Ctrl+N");
-    ADD_ACTION("File/NewPrivateWindow", m_menuFile, IconProvider::privateBrowsingIcon(), tr("New &Private Window"), SLOT(newPrivateWindow()), "Ctrl+Shift+P");
+    // ADD_ACTION("File/NewTab", m_menuFile, IconProvider::newTabIcon(), tr("New Tab"), SLOT(newTab()), "Ctrl+T");
+    // ADD_ACTION("File/NewWindow", m_menuFile, IconProvider::newWindowIcon(), tr("&New Window"), SLOT(newWindow()), "Ctrl+N");
+    // ADD_ACTION("File/NewPrivateWindow", m_menuFile, IconProvider::privateBrowsingIcon(), tr("New &Private Window"), SLOT(newPrivateWindow()), "Ctrl+Shift+P");
     ADD_ACTION("File/OpenLocation", m_menuFile, QIcon::fromTheme(QSL("document-open-remote")), tr("Open Location"), SLOT(openLocation()), "Ctrl+L");
     ADD_ACTION("File/OpenFile", m_menuFile, QIcon::fromTheme(QSL("document-open")), tr("Open &File..."), SLOT(openFile()), "Ctrl+O");
     ADD_ACTION("File/CloseWindow", m_menuFile, QIcon::fromTheme(QSL("window-close")), tr("Close Window"), SLOT(closeWindow()), "Ctrl+Shift+W");
     m_menuFile->addSeparator();
 
-    if (mApp->sessionManager()) {
-        QMenu* sessionsSubmenu = new QMenu(tr("Sessions"));
-        connect(sessionsSubmenu, SIGNAL(aboutToShow()), mApp->sessionManager(), SLOT(aboutToShowSessionsMenu()));
-        m_menuFile->addMenu(sessionsSubmenu);
-        action = new QAction(tr("Session Manager"), this);
-        connect(action, &QAction::triggered, mApp->sessionManager(), &SessionManager::openSessionManagerDialog);
-        m_actions[QSL("File/SessionManager")] = action;
-        m_menuFile->addAction(action);
-        m_menuFile->addSeparator();
-    }
+    // if (mApp->sessionManager()) {
+    //     QMenu* sessionsSubmenu = new QMenu(tr("Sessions"));
+    //     connect(sessionsSubmenu, SIGNAL(aboutToShow()), mApp->sessionManager(), SLOT(aboutToShowSessionsMenu()));
+    //     m_menuFile->addMenu(sessionsSubmenu);
+    //     action = new QAction(tr("Session Manager"), this);
+    //     connect(action, &QAction::triggered, mApp->sessionManager(), &SessionManager::openSessionManagerDialog);
+    //     m_actions[QSL("File/SessionManager")] = action;
+    //     m_menuFile->addAction(action);
+    //     m_menuFile->addSeparator();
+    // }
 
     ADD_ACTION("File/SavePageAs", m_menuFile, QIcon::fromTheme(QSL("document-save")), tr("&Save Page As..."), SLOT(savePageAs()), "Ctrl+S");
     ADD_ACTION("File/SendLink", m_menuFile, QIcon::fromTheme(QSL("mail-message-new")), tr("Send Link..."), SLOT(sendLink()), "");
